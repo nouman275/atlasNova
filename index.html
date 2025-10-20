@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompressHub - Free Online File Compressor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 32 32">
+                        <rect x="4" y="4" width="24" height="24" rx="4" fill="url(#grad1)"/>
+                        <path d="M16 10 L16 22 M10 16 L22 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span>CompressHub</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h1 class="hero-title">Compress Your Files <span class="gradient-text">Instantly</span></h1>
+            <p class="hero-subtitle">Fast, secure, and completely free. Reduce file sizes without losing quality.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Free Forever</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Secure</div>
+                    <div class="stat-label">Client-Side Processing</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Fast</div>
+                    <div class="stat-label">Instant Compression</div>
+                </div>
+            </div>
+            <a href="#tools" class="cta-button">Get Started Free</a>
+        </div>
+    </section>
+
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <h2 class="section-title">Choose Your Compression Tool</h2>
+            <p class="section-subtitle">Select the type of file you want to compress</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card" data-tool="image">
+                    <div class="tool-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="18" cy="18" r="3" fill="currentColor"/>
+                            <path d="M8 32 L16 24 L24 32 L32 24 L40 32 L40 40 L8 40 Z" fill="currentColor" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3>Compress Images</h3>
+                    <p>Reduce image file sizes (PNG, JPG, GIF, WebP) while maintaining quality</p>
+                    <button class="tool-button">Compress Image</button>
+                </div>
+
+                <div class="tool-card" data-tool="pdf">
+                    <div class="tool-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M12 6 L28 6 L36 14 L36 42 L12 42 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M28 6 L28 14 L36 14" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <text x="20" y="28" font-size="10" fill="currentColor" text-anchor="middle">PDF</text>
+                        </svg>
+                    </div>
+                    <h3>Compress PDFs</h3>
+                    <p>Reduce PDF document sizes for easier sharing and storage</p>
+                    <button class="tool-button">Compress PDF</button>
+                </div>
+
+                <div class="tool-card" data-tool="archive">
+                    <div class="tool-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="10" y="10" width="28" height="28" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 10 L18 18 M24 10 L24 18 M30 10 L30 18" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 24 L30 24 M18 30 L30 30" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Create ZIP Archive</h3>
+                    <p>Compress multiple files into a single ZIP archive</p>
+                    <button class="tool-button">Create ZIP</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="upload-section" id="upload-section" style="display: none;">
+        <div class="container">
+            <button class="back-button" id="back-button">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M12 4 L6 10 L12 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Back to Tools
+            </button>
+            
+            <h2 class="section-title" id="upload-title">Compress Your Files</h2>
+            
+            <div class="upload-area" id="upload-area">
+                <div class="upload-icon">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                        <path d="M32 16 L32 40 M22 26 L32 16 L42 26" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 48 L48 48" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Drop your files here</h3>
+                <p>or click to browse</p>
+                <input type="file" id="file-input" multiple accept="">
+                <div class="supported-formats" id="supported-formats">Supported formats: PNG, JPG, GIF, WebP</div>
+            </div>
+
+            <div class="quality-selector" id="quality-selector" style="display: none;">
+                <label for="quality-slider">Compression Quality:</label>
+                <div class="slider-container">
+                    <input type="range" id="quality-slider" min="0.1" max="1" step="0.1" value="0.8">
+                    <div class="slider-labels">
+                        <span>Small Size</span>
+                        <span id="quality-value">80%</span>
+                        <span>High Quality</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="file-list" id="file-list"></div>
+            
+            <button class="compress-button" id="compress-button" style="display: none;">
+                Compress Files
+            </button>
+        </div>
+    </section>
+
+    <section class="features-section" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose CompressHub?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Secure</h3>
+                    <p>All processing happens in your browser. Your files never leave your device.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Instant compression with no upload time. Process files in seconds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>High Quality</h3>
+                    <p>Reduce file size up to 90% while maintaining excellent visual quality.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🆓</div>
+                    <h3>Completely Free</h3>
+                    <p>No hidden fees, no subscriptions. Unlimited compressions forever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-section">
+        <div class="container">
+            <p class="trust-label">Trusted by professionals worldwide</p>
+            <div class="trust-logos">
+                <div class="trust-logo">Microsoft</div>
+                <div class="trust-logo">Google</div>
+                <div class="trust-logo">Amazon</div>
+                <div class="trust-logo">Apple</div>
+                <div class="trust-logo">Meta</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CompressHub</h4>
+                    <p>The fastest and most secure way to compress your files online.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="#tools">Compress Images</a></li>
+                        <li><a href="#tools">Compress PDFs</a></li>
+                        <li><a href="#tools">Create ZIP</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CompressHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
